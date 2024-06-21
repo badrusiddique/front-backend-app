@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sample.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Sample.Api.Controllers.AuditsController.GetByQueryAsync">
+             <summary>
+             Get all audit information by query input
+             </summary>
+             <remarks>
+            
+                 GET /api/audits?startDate={start-date} AND endDate={end-date}
+                 startDate and endDate are of DateTime type which expects YYYY/DD/MM, MM/DD/YYYY or DD-MM-YYYY format
+            
+             </remarks>
+             <param name="queryDto">audit query input</param>
+             <returns>Audit Response Dto</returns>
+        </member>
+        <member name="M:Sample.Api.Controllers.MeasurementsController.GetAllAsync">
+             <summary>
+             Get all measurement information
+             </summary>
+             <remarks>
+            
+                 GET /api/measurements
+            
+             </remarks>
+             <returns>measurement Response Dto</returns>
+        </member>
+        <member name="M:Sample.Api.Controllers.MeasurementsController.GetByIdAsync(System.Guid)">
+             <summary>
+             Gets measurement information by measurement id
+             </summary>
+             <remarks>
+            
+                 GET /api/measurements/{id}
+            
+             </remarks>
+             <param name="id">measurement unique identifier</param>
+             <returns>measurement Response Dto</returns>
+        </member>
+        <member name="M:Sample.Api.Controllers.MeasurementsController.CreateAsync(Sample.Mapper.DTOs.Request.MeasurementRequestDto)">
+             <summary>
+             Creates a measurement record
+             </summary>
+             <remarks>
+               Note -
+            
+                 POST /api/measurements
+                 {
+                 "email": "email address",
+                 "name": "user name",
+                 "state": "state one of - Startup, Slow, Running, Stopping, Shutdown",
+                 "speed": speed value,
+                 "vibration": vibration value,
+                 "acceleration": acceleration value optional,
+                 "temperature": temperature value,
+                 }
+            
+             </remarks>
+             <returns>Measurement Response Dto</returns>
+        </member>
+        <member name="M:Sample.Api.Controllers.MeasurementsController.UpdateByIdAsync(System.Guid,Sample.Mapper.DTOs.Request.MeasurementRequestDto)">
+             <summary>
+             Updates a measurement record
+             </summary>
+             <remarks>
+            
+                 PUT /api/measurements
+                 {
+                 "email": "email address",
+                 "name": "user name",
+                 "state": "state one of - Startup, Slow, Running, Stopping, Shutdown",
+                 "speed": speed value,
+                 "vibration": vibration value,
+                 "acceleration": acceleration value optional,
+                 "temperature": temperature value,
+                 }
+            
+             </remarks>
+             <param name="id">measurement unique identifier</param>
+             <param name="requestDto"></param>
+             <returns>Response Dto</returns>
+        </member>
+        <member name="M:Sample.Api.Controllers.MeasurementsController.DeleteByIdAsync(System.Guid)">
+             <summary>
+             Removes a measurement record
+             </summary>
+             <remarks>
+            
+                 DELETE /api/measurements/{id}
+            
+             </remarks>
+             <param name="id">measurement unique identifier</param>
+             <returns></returns>
+        </member>
+        <member name="M:Sample.Api.Installers.IInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Install Services based on environment variable
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <param name="environment"></param>
+        </member>
+        <member name="T:Sample.Api.Middlewares.CustomExceptionMiddleware">
+            <summary>
+            custom error exception middleware
+            </summary>
+        </member>
+        <member name="T:Sample.Api.Middlewares.Extensions.CorsExtension">
+            <summary>
+            cors middleware extension
+            </summary>
+        </member>
+        <member name="T:Sample.Api.Middlewares.Extensions.EndpointExtension">
+            <summary>
+            route endpoints middleware extension
+            </summary>
+        </member>
+        <member name="T:Sample.Api.Middlewares.Extensions.ExceptionExtension">
+            <summary>
+            custom exception middleware extension
+            </summary>
+        </member>
+        <member name="T:Sample.Api.Middlewares.Extensions.SwaggerExtension">
+            <summary>
+            swagger middleware extension
+            </summary>
+        </member>
+        <member name="T:Sample.Api.Responses.ApiResponse`1">
+            <summary>
+            response result dto base
+            </summary>
+            <typeparam name="T">Dto</typeparam>
+        </member>
+        <member name="P:Sample.Api.Responses.ApiResponse`1.Data">
+            <summary>
+            response data
+            </summary>
+        </member>
+        <member name="M:Sample.Api.Responses.ApiResponse`1.ParseResponse(`0)">
+            <summary>
+            parse response object from dto input
+            </summary>
+            <param name="data"></param>
+            <returns>ApiResponse</returns>
+        </member>
+        <member name="M:Sample.Api.Responses.ApiResponse`1.ParseResponse(`0,System.Net.HttpStatusCode)">
+            <summary>
+            parse response object from dto input
+            </summary>
+            <param name="data"></param>
+            <param name="code"></param>
+            <returns>ApiResponse</returns>
+        </member>
+        <member name="T:Sample.Api.Responses.ErrorResponse">
+            <summary>
+            error response
+            </summary>
+        </member>
+        <member name="P:Sample.Api.Responses.ErrorResponse.Message">
+            <summary>
+            error message
+            </summary>
+        </member>
+        <member name="P:Sample.Api.Responses.ErrorResponse.Code">
+            <summary>
+            error code
+            </summary>
+        </member>
+        <member name="T:Sample.Api.Responses.ResponseBase">
+            <summary>
+            response result base
+            </summary>
+        </member>
+        <member name="P:Sample.Api.Responses.ResponseBase.StatusCode">
+            <summary>
+            http status code
+            </summary>
+        </member>
+        <member name="P:Sample.Api.Responses.ResponseBase.Error">
+            <summary>
+            error response with message and error-code
+            </summary>
+        </member>
+        <member name="M:Sample.Api.Responses.ResponseBase.DefaultResponse">
+            <summary>
+            parse default response
+            </summary>
+            <returns>ApiResponse</returns>
+        </member>
+        <member name="M:Sample.Api.Responses.ResponseBase.ParseResponse(System.Net.HttpStatusCode,Sample.Api.Responses.ErrorResponse)">
+            <summary>
+            parse response with input
+            </summary>
+            <returns>ApiResponse</returns>
+        </member>
+    </members>
+</doc>

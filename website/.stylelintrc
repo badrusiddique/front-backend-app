@@ -1,0 +1,35 @@
+{
+  "files": [
+    "./*/.{vue,htm,html,css,sss,less,scss,sass}"
+  ],
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": "tab",
+    "no-empty-source": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "function",
+          "if",
+          "each",
+          "include",
+          "mixin",
+          "extend",
+          "else"
+        ]
+      }
+    ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignore": [
+          "custom-elements",
+          "default-namespace"
+        ]
+      }
+    ],
+    "no-descending-specificity": null,
+    "function-whitespace-after": null
+  }
+}

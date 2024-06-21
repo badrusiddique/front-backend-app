@@ -1,0 +1,21 @@
+.form-error {
+  display: block;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  padding-left: 8px;
+  font-size: 0.75rem;
+  font-style: italic;
+  vertical-align: middle;
+  color: #CE1609;
+  border-color: #CE1609;
+  border-top: 1px solid;
+}
+
+.card-header-container {
+  border-bottom: 1px solid #B3B3B3;
+}
+
+.bread-crumb {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

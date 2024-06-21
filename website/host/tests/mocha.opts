@@ -1,0 +1,8 @@
+# mocha.opts
+--timeout 2000
+--async-only
+--recursive
+--inline-diffs
+--full-trace
+--ui bdd
+--exit

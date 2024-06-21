@@ -1,0 +1,6 @@
+text eol=lf
+*.eot binary
+*.ttf binary
+*.pem binary
+*.woff binary
+*.woff2 binary

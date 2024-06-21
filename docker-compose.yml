@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  web:
+    container_name: sample-web
+    build:
+      context: ./website
+      dockerfile: Dockerfile
+    command: npm run start
+    ports:
+      - "8080:8080"
+    environment:
+      SAMPLE_API_URL: "http://172.18.0.2:8080"
+    depends_on:
+      - api
+  api:
+    container_name: sample-api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8086:8080"

@@ -1,0 +1,78 @@
+import dig from 'object-dig';
+import {
+  isNil,
+  isEmpty,
+  curry,
+  anyPass,
+  map,
+  values,
+  pick,
+  clone,
+  cond,
+  equals,
+  sort,
+  sortBy,
+  T,
+  any,
+  pipe,
+  not,
+  merge,
+  without,
+  filter,
+  update,
+  always,
+  reject,
+  trim,
+  join,
+  find,
+  pluck,
+  flatten,
+  uniq,
+  includes,
+  defaultTo,
+  intersection,
+} from 'rambda';
+
+const isBlank = anyPass([isNil, isEmpty]);
+
+const hasValue = pipe(isBlank, not);
+
+const deepProp = curry((path, obj) => dig(obj, ...path));
+
+const deepPropEq = curry((path, value, obj) => equals(value, deepProp(path, obj)));
+
+export {
+  isBlank,
+  hasValue,
+  deepProp,
+  deepPropEq,
+  isNil,
+  map,
+  values,
+  pick,
+  pipe,
+  clone,
+  cond,
+  filter,
+  equals,
+  sort,
+  sortBy,
+  T,
+  not,
+  any,
+  merge,
+  without,
+  always,
+  reject,
+  anyPass,
+  trim,
+  join,
+  find,
+  pluck,
+  uniq,
+  update,
+  includes,
+  flatten,
+  defaultTo,
+  intersection,
+};
